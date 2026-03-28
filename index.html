@@ -1,1 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grêmio Estudantil — Chapa Norte</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #cc0018;
+      --red-dark: #8a0010;
+      --red-glow: rgba(204,0,24,0.35);
+      --black: #0d0d0d;
+      --dark: #141414;
+      --card-bg: #1a1a1a;
+      --border: rgba(204,0,24,0.3);
+      --text: #f0f0f0;
+      --muted: #999;
+      --accent: #ffffff;
+    }
+    body {
+      font-family: 'Barlow', sans-serif;
+      font-size: 24px;
+      background: var(--black);
+      color: var(--text);
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(204,0,24,0.03) 40px, rgba(204,0,24,0.03) 41px),
+        repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(204,0,24,0.03) 40px, rgba(204,0,24,0.03) 41px);
+    }
 
+
+
+    /* HEADER */
+    #site-header {
+      background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+      border-bottom: 3px solid var(--red);
+      padding: 12px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .header-logo { display: flex; align-items: center; gap: 14px; }
+    .logo-icon {
+      width: 48px; height: 48px; border-radius: 6px; flex-shrink: 0;
+      background: var(--red); display: flex; align-items: center;
+      justify-content: center; font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px; color: #fff; letter-spacing: 1px;
+      box-shadow: 0 0 16px var(--red-glow);
+    }
+    .logo-text h1 { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: #fff; letter-spacing: 2px; line-height: 1; }
+    .logo-text p { font-size: 11px; color: var(--red); letter-spacing: 1px; text-transform: uppercase; font-weight: 600; margin-top: 2px; }
+    nav { display: flex; gap: 4px; flex-wrap: wrap; }
+    nav a {
+      color: #aaa; text-decoration: none;
+      padding: 6px 12px; border-radius: 4px; font-size: 13px;
+      font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.5px; font-weight: 600;
+      transition: color 0.15s, background 0.15s; text-transform: uppercase;
+    }
+    nav a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+
+    /* HERO */
+    #hero {
+      background: linear-gradient(135deg, #0d0d0d 0%, #1a0005 50%, #0d0d0d 100%);
+      border-bottom: 3px solid var(--red);
+      color: #fff; padding: 60px 24px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(204,0,24,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #hero-badge {
+      display: inline-block; background: var(--red); color: #fff;
+      font-family: 'Bebas Neue', sans-serif; font-size: 13px; padding: 4px 16px;
+      letter-spacing: 3px; margin-bottom: 20px;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    }
+    #hero h2 {
+      font-family: 'Bebas Neue', sans-serif; font-size: 52px; line-height: 1;
+      margin-bottom: 16px; letter-spacing: 3px;
+      text-shadow: 0 0 40px rgba(204,0,24,0.5);
+    }
+    #hero h2 span { color: var(--red); }
+    #hero p { font-size: 15px; color: #bbb; max-width: 500px; margin: 0 auto 28px; line-height: 1.7; }
+    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--red); color: #fff; padding: 11px 26px; font-size: 13px;
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700; letter-spacing: 1px;
+      border: none; cursor: pointer; text-decoration: none; display: inline-block;
+      text-transform: uppercase;
+      clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    }
+    .btn-outline {
+      background: transparent; color: #fff; padding: 11px 26px; font-size: 13px;
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700; letter-spacing: 1px;
+      border: 1.5px solid rgba(255,255,255,0.25); cursor: pointer; text-decoration: none; display: inline-block;
+      text-transform: uppercase;
+    }
+
+    /* MAIN */
+    main { max-width: 920px; margin: 0 auto; padding: 36px 16px 56px; }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 3px; margin-bottom: 18px;
+      color: #fff; display: flex; align-items: center; gap: 12px;
+    }
+    .section-title::before {
+      content: ''; display: block; width: 4px; height: 28px;
+      background: var(--red); box-shadow: 0 0 10px var(--red-glow); flex-shrink: 0;
+    }
+    .section { margin-bottom: 48px; }
+
+    /* NEWS */
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .news-card {
+      background: var(--card-bg); border: 1px solid var(--border); border-top: 3px solid var(--red);
+      border-radius: 4px; padding: 18px; position: relative;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .news-card:hover { border-color: rgba(204,0,24,0.6); transform: translateY(-2px); }
+    .news-tag {
+      font-size: 10px; font-weight: 700; letter-spacing: 1px;
+      background: rgba(204,0,24,0.15); color: var(--red);
+      padding: 3px 8px; border-radius: 2px; display: inline-block; margin-bottom: 10px;
+      font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase;
+    }
+    .news-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; line-height: 1.3; color: #fff; }
+    .news-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .news-date { font-size: 11px; color: #555; margin-top: 12px; font-family: 'Barlow Condensed', sans-serif; }
+
+    /* EVENTS */
+    .event-item {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 4px; padding: 16px; margin-bottom: 10px; position: relative;
+    }
+    .event-date-box {
+      min-width: 54px; background: var(--red); border-radius: 4px;
+      text-align: center; padding: 8px 4px; flex-shrink: 0;
+      box-shadow: 0 0 12px var(--red-glow);
+    }
+    .event-date-box .day { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: #fff; line-height: 1; }
+    .event-date-box .month { font-size: 10px; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+    .event-info h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; color: #fff; }
+    .event-info p { font-size: 13px; color: var(--muted); }
+
+    /* PROPOSALS */
+    .proposal-item {
+      background: var(--card-bg); border: 1px solid var(--border); border-left: 4px solid var(--red);
+      border-radius: 4px; padding: 18px 18px 18px 20px;
+      margin-bottom: 12px; position: relative;
+      display: flex; align-items: flex-start; gap: 14px;
+    }
+    .proposal-status {
+      font-size: 10px; font-weight: 700; letter-spacing: 1px;
+      padding: 3px 10px; border-radius: 2px; display: inline-block; margin-bottom: 8px;
+      text-transform: uppercase; font-family: 'Barlow Condensed', sans-serif;
+    }
+    .status-andamento { background: rgba(0,120,255,0.15); color: #4da6ff; border: 1px solid rgba(0,120,255,0.25); }
+    .status-pendente { background: rgba(255,180,0,0.12); color: #ffb400; border: 1px solid rgba(255,180,0,0.25); }
+    .status-concluida { background: rgba(0,180,80,0.12); color: #00cc55; border: 1px solid rgba(0,180,80,0.25); }
+    .proposal-body { flex: 1; }
+    .proposal-body h4 {
+      font-size: 17px; font-weight: 700; margin-bottom: 8px; color: #fff;
+      font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.5px;
+    }
+    .proposal-body p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+    .proposal-number {
+      width: 32px; height: 32px; border-radius: 4px;
+      background: var(--red); color: #fff;
+      font-family: 'Bebas Neue', sans-serif; font-size: 18px;
+      flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 8px var(--red-glow);
+    }
+
+    /* MEMBERS */
+    .members-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+    .member-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 4px; padding: 16px; text-align: center; position: relative;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .member-card:hover { border-color: rgba(204,0,24,0.5); transform: translateY(-2px); }
+    .member-avatar {
+      width: 50px; height: 50px; border-radius: 50%;
+      background: rgba(204,0,24,0.15); border: 2px solid var(--red);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif; font-size: 17px; color: var(--red);
+      margin: 0 auto 10px; box-shadow: 0 0 10px var(--red-glow);
+    }
+    .member-card h4 { font-size: 13px; font-weight: 700; margin-bottom: 3px; color: #fff; }
+    .member-card p { font-size: 11px; color: var(--red); font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; font-family: 'Barlow Condensed', sans-serif; }
+
+    /* SECTOR GROUPS */
+    .sector-group { margin-bottom: 28px; }
+    .sector-label {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--red);
+      background: rgba(204,0,24,0.1); border: 1px solid rgba(204,0,24,0.3);
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 14px; border-radius: 2px; margin-bottom: 12px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #050505; border-top: 2px solid var(--red);
+      text-align: center; padding: 22px 16px; font-size: 12px;
+      font-family: 'Barlow Condensed', sans-serif; letter-spacing: 1px;
+    }
+    footer span { color: #444; }
+
+    /* EDIT STYLES */
+    [contenteditable="true"] {
+      outline: 2px dashed var(--red) !important; border-radius: 2px; cursor: text;
+      background: rgba(204,0,24,0.06) !important; min-width: 20px; display: inline-block;
+    }
+    .delete-btn {
+      position: absolute; top: 8px; right: 8px;
+      background: rgba(200,0,0,0.15); border: 1px solid rgba(200,0,0,0.3);
+      cursor: pointer; color: #ff4444; font-size: 11px; padding: 2px 8px;
+      border-radius: 3px; display: none; font-weight: 700;
+      font-family: 'Barlow Condensed', sans-serif;
+    }
+    .add-card-btn {
+      border: 2px dashed rgba(204,0,24,0.25); border-radius: 4px;
+      padding: 14px; text-align: center; cursor: pointer;
+      font-size: 13px; color: #555; display: none;
+      background: transparent; width: 100%; margin-top: 10px;
+      transition: border-color 0.2s, color 0.2s;
+      font-family: 'Barlow Condensed', sans-serif; letter-spacing: 1px; text-transform: uppercase;
+    }
+    .add-card-btn:hover { border-color: var(--red); color: var(--red); }
+
+    @media (max-width: 600px) {
+      #site-header { flex-direction: column; align-items: flex-start; }
+      nav { width: 100%; }
+      #hero h2 { font-size: 36px; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .members-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+
+<header id="site-header">
+  <div class="header-logo">
+    <div class="logo-icon" id="logo-init">GE</div>
+    <div class="logo-text">
+      <h1 id="school-name">Escola Básica URI</h1>
+      <p id="gremio-name">Grêmio Estudantil — Chapa Norte</p>
+    </div>
+  </div>
+  <nav>
+    <a href="#">Início</a>
+    <a href="#section-propostas">Propostas</a>
+    <a href="#section-diretoria">Diretoria</a>
+  </nav>
+</header>
+
+<section id="hero">
+  <div id="hero-badge">✦ GESTÃO 2026</div>
+  <h2 id="hero-title">O CAMINHO PARA<br><span>UM NOVO FUTURO!</span></h2>
+  <p id="hero-desc">O Grêmio Estudantil representa todos os alunos, promovendo participação, cultura e cidadania dentro e fora da escola.</p>
+  <div class="hero-btns">
+    <a class="btn-primary" href="#">Fale Conosco</a>
+    <a class="btn-outline" href="#section-propostas">Nossas Propostas</a>
+  </div>
+</section>
+
+<main>
+
+
+
+  <div class="section" id="section-propostas">
+    <div class="section-title">💡 Propostas</div>
+    <div id="proposals-list">
+
+      <div class="proposal-item">
+        <button class="delete-btn">✕ remover</button>
+        <div class="proposal-number">1</div>
+        <div class="proposal-body">
+          <span class="proposal-status status-andamento">EM ANDAMENTO</span>
+          <h4>Voz Ativa</h4>
+          <p>Criar um canal aberto para que todos os alunos possam dar ideias, sugestões e opiniões para melhorar a escola, além de uma caixinha física onde os alunos podem mandar propostas facilmente.</p>
+        </div>
+      </div>
+
+      <div class="proposal-item">
+        <button class="delete-btn">✕ remover</button>
+        <div class="proposal-number">2</div>
+        <div class="proposal-body">
+          <span class="proposal-status status-andamento">EM ANDAMENTO</span>
+          <h4>Conexão Estudantil</h4>
+          <p>A proposta busca promover um momento de integração e descontração entre os alunos, por meio de um recreio estendido. Durante esse período, haverá brincadeiras com brindes, venda de comidas, música (com playlist feita pelos próprios alunos!) e quem toca algum instrumento também será permitido que você o traga — será um momento de socialização, tornando a escola mais participativa e acolhedora.</p>
+        </div>
+      </div>
+
+      <div class="proposal-item">
+        <button class="delete-btn">✕ remover</button>
+        <div class="proposal-number">3</div>
+        <div class="proposal-body">
+          <span class="proposal-status status-andamento">EM ANDAMENTO</span>
+          <h4>Jogos e a Secart</h4>
+          <p><strong style="color:#fff;">SECART —</strong> Teremos uma surpresa para os ganhadores da SECART 2026... Os campeões terão seu almoço na Aproffapes, com atividades voltadas à integração da turma (futsabão, pó colorido) e um troféu. A surpresa será na revelação dos vencedores... Aguardem!</p>
+          <p style="margin-top:10px"><strong style="color:#fff;">INTERCLASSES —</strong> Serão realizadas ao final de cada trimestre letivo. A proposta consiste na organização de competições entre turmas, envolvendo modalidades como futsal e voleibol. Os alunos também poderão apresentar ideias para práticas de outros tipos de jogos (handball, tênis, basquete, etc.).</p>
+        </div>
+      </div>
+
+      <div class="proposal-item">
+        <button class="delete-btn">✕ remover</button>
+        <div class="proposal-number">4</div>
+        <div class="proposal-body">
+          <span class="proposal-status status-andamento">EM ANDAMENTO</span>
+          <h4>Reformas</h4>
+          <p><strong style="color:#fff;">SALINHA —</strong> Será realizada uma arrecadação de recursos por meio de ações organizadas pelo grêmio, como vendas, campanhas e eventos. O valor arrecadado será destinado à reforma do espaço e à instalação de ventiladores, proporcionando maior conforto, especialmente em dias quentes.</p>
+          <p style="margin-top:10px"><strong style="color:#fff;">PÁTIO —</strong> Também com o dinheiro oriundo de arrecadações que o grêmio fizer durante o ano, proporcionaremos mais lugares para que haja um maior aproveitamento do pátio, como a compra de cadeiras e redes para goleiras.</p>
+        </div>
+      </div>
+
+      <div class="proposal-item">
+        <button class="delete-btn">✕ remover</button>
+        <div class="proposal-number">5</div>
+        <div class="proposal-body">
+          <span class="proposal-status status-andamento">EM ANDAMENTO</span>
+          <h4>Encerramento para Nonos Anos</h4>
+          <p><strong style="color:#fff;">Objetivo —</strong> Proporcionar um dia especial de integração, diversão e celebração para os alunos do 9º ano. A programação contará com atividades diferenciadas, como jogos, dinâmicas, músicas, brincadeiras com água e momentos de descontração, marcando o encerramento de um ciclo importante na vida escolar dos estudantes.</p>
+          <p style="margin-top:10px"><strong style="color:#fff;">Local —</strong> Ginásios da URI ou Aproffapes.</p>
+        </div>
+      </div>
+
+      <div class="proposal-item">
+        <button class="delete-btn">✕ remover</button>
+        <div class="proposal-number">6</div>
+        <div class="proposal-body">
+          <span class="proposal-status status-andamento">EM ANDAMENTO</span>
+          <h4>Mural dos Vencedores</h4>
+          <p>Criação de um Mural de Honra da Secart, com o objetivo de valorizar e reconhecer os alunos vencedores. O mural será instalado em um local visível da escola e contará com fotos, nomes e categorias dos ganhadores, servindo como forma de incentivo à participação e ao destaque dos talentos estudantis, com ênfase para a turma vencedora.</p>
+          <p style="margin-top:10px">A proposta também busca fortalecer o espírito escolar, promover o reconhecimento dos estudantes e criar uma memória permanente das conquistas alcançadas na Secart.</p>
+        </div>
+      </div>
+
+    </div>
+    <button class="add-card-btn" id="add-proposal">+ Adicionar proposta</button>
+  </div>
+
+  <div class="section" id="section-diretoria">
+    <div class="section-title">👤 Diretoria</div>
+    <div id="members-grid">
+
+      <div class="sector-group">
+        <div class="sector-label">🏛 Presidência</div>
+        <div class="members-grid">
+          <div class="member-card"><button class="delete-btn">✕</button><div class="member-avatar">RZ</div><h4>Ramiro Zambonato</h4><p>Presidente</p></div>
+          <div class="member-card"><button class="delete-btn">✕</button><div class="member-avatar">LM</div><h4>Laura Moratelli</h4><p>Vice-Presidente</p></div>
+        </div>
+      </div>
+
+      <div class="sector-group">
+        <div class="sector-label">📋 Secretaria</div>
+        <div class="members-grid">
+          <div class="member-card"><button class="delete-btn">✕</button><div class="member-avatar">ME</div><h4>Maria Eduarda Gehlen</h4><p>Secretária</p></div>
+        </div>
+      </div>
+
+      <div class="sector-group">
+        <div class="sector-label">💰 Tesouraria</div>
+        <div class="members-grid">
+          <div class="member-card"><button class="delete-btn">✕</button><div class="member-avatar">VC</div><h4>Vinícius Cambri</h4><p>Tesoureiro</p></div>
+        </div>
+      </div>
+
+      <div class="sector-group">
+        <div class="sector-label">🤝 Setor Social</div>
+        <div class="members-grid">
+          <div class="member-card"><button class="delete-btn">✕</button><div class="member-avatar">AM</div><h4>Antonella Moreira Busetto</h4><p>Setor Social</p></div>
+          <div class="member-card"><button class="delete-btn">✕</button><div class="member-avatar">MG</div><h4>Mariana Guedes</h4><p>Setor Social</p></div>
+        </div>
+      </div>
+
+      <div class="sector-group">
+        <div class="sector-label">🎨 Setor Cultural</div>
+        <div class="members-grid">
+          <div class="member-card"><button class="delete-btn">✕</button><div class="member-avatar">MK</div><h4>Milena Kalinoski Dias</h4><p>Setor Cultural</p></div>
+          <div class="member-card"><button class="delete-btn">✕</button><div class="member-avatar">LL</div><h4>Laura Lira Jevinski</h4><p>Setor Cultural</p></div>
+        </div>
+      </div>
+
+      <div class="sector-group">
+        <div class="sector-label">⚽ Setor Esportivo</div>
+        <div class="members-grid">
+          <div class="member-card"><button class="delete-btn">✕</button><div class="member-avatar">JP</div><h4>João Pedro Sirena</h4><p>Setor Esportivo</p></div>
+          <div class="member-card"><button class="delete-btn">✕</button><div class="member-avatar">DB</div><h4>Davi Los Botolli</h4><p>Setor Esportivo</p></div>
+        </div>
+      </div>
+
+      <div class="sector-group">
+        <div class="sector-label">📣 Comunicação</div>
+        <div class="members-grid">
+          <div class="member-card"><button class="delete-btn">✕</button><div class="member-avatar">PB</div><h4>Pedro Bortulini</h4><p>Comunicação</p></div>
+          <div class="member-card"><button class="delete-btn">✕</button><div class="member-avatar">ET</div><h4>Maria Eduarda Toti</h4><p>Comunicação</p></div>
+        </div>
+      </div>
+
+    </div>
+    <button class="add-card-btn" id="add-member">+ Adicionar membro</button>
+  </div>
+
+</main>
+
+<footer>
+  <span id="footer-text">© 2026 GRÊMIO ESTUDANTIL — ESCOLA BÁSICA URI — CHAPA NORTE</span>
+</footer>
+
+<script>
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('delete-btn')) {
+      const parent = e.target.closest('.member-card, .proposal-item');
+      if (parent) parent.remove();
+      renumberProposals();
+    }
+  });
+
+  function renumberProposals() {
+    document.querySelectorAll('#proposals-list .proposal-number').forEach((el, i) => { el.textContent = i + 1; });
+  }
+</script>
+</body>
+</html>
